@@ -3,13 +3,17 @@ export const simulatorContext = () => {
         selectedType: 1,
         pickerSection: true,
         switchType(e: Event) {
+            if(e.target !== e.currentTarget) return;
             if (e.target instanceof Element) {
-                this.selectedType = parseInt(e?.target?.getAttribute("id") || "1");
+                let target = e.target.getAttribute("id");
+                if (target) {
+                    this.selectedType = parseInt(target);
+                }
             }
             this.pickerSection = false;
         },
         switchBack() {
-            this.pickerSection = false;
+            this.pickerSection = true;
         }
     }
 };

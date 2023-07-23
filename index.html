@@ -20,25 +20,34 @@
           <h2>Select the type of vehicle that you desire to finance</h2>
           <p>Select the type of vehicle that you want</p>
           <section class="flex flex-col md:flex-row md:justify-center space-y-3 md:space-y-0 md:space-x-10 mt-10">
-            <figure id="1" @click="switchType($event)" class="font-bold text-center text-lg bg-gray-100 dark:bg-slate-800 p-5 rounded-lg shadow transition-all transform hover:scale-105 cursor-pointer hover:text-yellow-500 dark:hover:text-yellow-500 text-black dark:text-white">
-              <img class="h-32" src="/images/bike-colors.svg" alt="Finance a bicycle" height="100"/>
+            <figure aria-label="Bicycle" id="1" @click="switchType($event)" class="font-bold text-center text-lg bg-gray-100 dark:bg-slate-800 p-5 rounded-lg shadow transition-all transform hover:scale-105 cursor-pointer hover:text-yellow-500 dark:hover:text-yellow-500 text-black dark:text-white">
+              <img src="/images/bike-colors.svg" alt="Finance a bicycle" height="100"/>
               <figcaption>Bicycle</figcaption>
             </figure>
-            <figure id="2" @click="switchType($event)" class="font-bold text-center text-lg bg-gray-100 dark:bg-slate-800 p-5 rounded-lg shadow transition-all transform hover:scale-105 cursor-pointer hover:text-yellow-500 dark:hover:text-yellow-500 text-black dark:text-white">
-              <img class="h-32" src="/images/motorcycle-colors.svg" alt="Finance a motorcycle" height="100"/>
+            <figure aria-label="Motorcycle" id="2" @click="switchType($event)" class="font-bold text-center text-lg bg-gray-100 dark:bg-slate-800 p-5 rounded-lg shadow transition-all transform hover:scale-105 cursor-pointer hover:text-yellow-500 dark:hover:text-yellow-500 text-black dark:text-white">
+              <img src="/images/motorcycle-colors.svg" alt="Finance a motorcycle" height="100"/>
               <figcaption>Motorcycle</figcaption>
             </figure>
-            <figure id="3" @click="switchType($event)" class="font-bold text-center text-lg bg-gray-100 dark:bg-slate-800 p-5 rounded-lg shadow transition-all transform hover:scale-105 cursor-pointer hover:text-yellow-500 dark:hover:text-yellow-500 text-black dark:text-white">
-              <img class="h-32" src="/images/car-colors.svg" alt="Finance a car" height="100"/>
+            <figure aria-label="Car" id="3" @click="switchType($event)" class="font-bold text-center text-lg bg-gray-100 dark:bg-slate-800 p-5 rounded-lg shadow transition-all transform hover:scale-105 cursor-pointer hover:text-yellow-500 dark:hover:text-yellow-500 text-black dark:text-white">
+              <img src="/images/car-colors.svg" alt="Finance a car" height="100"/>
               <figcaption>Car</figcaption>
             </figure>
           </section>
         </section>
         <section x-show="!pickerSection">
-  
+          <p aria-label="Go back to selection page" @click="switchBack" class="text-black dark:text-white text-center font-bold hover:text-yellow-500 dark:hover:text-yellow-500 transition-all cursor-pointer"><i class="bi bi-chevron-left"></i>&nbsp;Atras</p>
+          <section x-show="selectedType == 1">
+            <h2>Bicycle Loan Simulator</h2>
+          </section>
+          <section x-show="selectedType == 2">
+            <h2>Motorcycle Loan Simulator</h2>
+          </section>
+          <section x-show="selectedType == 3">
+            <h2>Car Loan Simulator</h2>
+          </section>
         </section>
       </section>
-      <section title="Switch theme" @click="switchTheme" class="rounded-tl rounded-bl text-center p-3 fixed right-0 top-1/2 transform -translate-y-1/2 bg-slate-100 text-black hover:text-yellow-500 dark:hover:text-yellow-500 cursor-pointer transition-all dark:text-white dark:bg-slate-900">
+      <section title="Switch theme" @click="switchTheme" class="rounded-tl shadow rounded-bl text-center p-3 fixed right-0 top-1/2 transform -translate-y-1/2 bg-slate-100 text-black hover:text-yellow-500 dark:hover:text-yellow-500 cursor-pointer transition-all dark:text-white dark:bg-slate-900">
         <i x-show="darkTheme" class="bi bi-brightness-high-fill"></i>
         <i x-show="!darkTheme" class="bi bi-moon-stars"></i>
       </section>
