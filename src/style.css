@@ -33,7 +33,7 @@ li {
   height: 20px;
   border-radius: 50%;
   background-color: #636363;
-  border: 5px solid #e8cf17;
+  border: 5px solid #eab308;
   box-shadow: 0px 0px 40px -4px rgba(0, 0, 0, 0.76);
   transition: all 0.1s ease-in-out;
   outline: none;
@@ -41,5 +41,5 @@ li {
 }
 
 .x-slider input::-webkit-slider-thumb:hover {
-  border-color: #e8cf17;
+  border-color: #eab308;
 }
