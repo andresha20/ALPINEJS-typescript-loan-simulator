@@ -8,10 +8,38 @@ body {
   margin: 0;
 }
 
+label {
+  font-weight: bold;
+  font-size: small;
+  margin-bottom: 5px;
+  padding-top: 10px;
+  display: block;
+}
+
 * {
   margin: 0;
 }
 li {
   list-style: none;
   display: inline;
+}
+
+.x-slider * {
+  width: 350px !important;
+}
+
+.x-slider input::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #636363;
+  border: 5px solid #e8cf17;
+  box-shadow: 0px 0px 40px -4px rgba(0, 0, 0, 0.76);
+  transition: all 0.1s ease-in-out;
+  outline: none;
+  appearance: none;
+}
+
+.x-slider input::-webkit-slider-thumb:hover {
+  border-color: #e8cf17;
 }
