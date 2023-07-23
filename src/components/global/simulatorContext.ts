@@ -27,6 +27,13 @@ export const simulatorContext = () => {
         switchBack() {
             this.pickerSection = true;
         },
+        updateValues() {
+            const maxDownPayment = this.parseString(this.loan) - 10000000;
+            this.downPayment = (this.downPaymentValue * maxDownPayment) / 100;
+            const maxMonthlyPayment = this.calculateMonthlyPayment(0);
+            this.monthlyPayment = this.calculateMonthlyPayment();
+            this.monthlyPaymentValue = (this.monthlyPayment * 100) / maxMonthlyPayment;
+        },
         calculateMonthlyPayment(customDownPayment?: number) {
             const monthlyPayment = ((this.parseString(this.loan) - (customDownPayment ?? this.downPayment)) * (this.interestRate/100)) / (1 - Math.pow(1 + (this.interestRate/100), (~this.time + 1)));
             return monthlyPayment;

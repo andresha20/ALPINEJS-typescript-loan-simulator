@@ -45,11 +45,11 @@
                 <div class="flex md:flex-row flex-col space-y-5 md:space-y-0 md:space-x-10 w-full">
                   <div class="w-full">
                     <label>AMOUNT</label>
-                    <input id="focus-here" x-model="loan" placeholder="Loan Amount" class="w-full bg-gray-200 h-8 rounded placeholder:bg-gray-200 dark:placeholder:bg-opacity-0 px-2 dark:bg-slate-900 border-0 text-gray-800 dark:text-yellow-500 focus:border-2 outline-none dark:focus:border-yellow-500 dark:focus:ring-yellow-500" x-mask:dynamic="$money($input)">
+                    <input id="focus-here" x-model="loan" x-on:input="updateValues" placeholder="Loan Amount" class="w-full bg-gray-200 h-8 rounded placeholder:bg-gray-200 dark:placeholder:bg-opacity-0 px-2 dark:bg-slate-900 border-0 text-gray-800 dark:text-yellow-500 focus:border-2 outline-none dark:focus:border-yellow-500 dark:focus:ring-yellow-500" x-mask:dynamic="$money($input)">
                   </div>
                   <div class="w-full">
                     <label>DUE</label>
-                    <select x-model="time" id="selector" class="bg-gray-200 w-full h-8 rounded placeholder:bg-gray-200 dark:placeholder:bg-opacity-0 px-2 dark:bg-slate-900 border-0 text-gray-800 dark:text-yellow-500 focus:border-2 outline-none dark:focus:border-yellow-500 dark:focus:ring-yellow-500">
+                    <select x-model="time" id="selector" x-on:change="updateValues" class="bg-gray-200 w-full h-8 rounded placeholder:bg-gray-200 dark:placeholder:bg-opacity-0 px-2 dark:bg-slate-900 border-0 text-gray-800 dark:text-yellow-500 focus:border-2 outline-none dark:focus:border-yellow-500 dark:focus:ring-yellow-500">
                       <option selected value="12">12 months (1 year)</option>
                       <option value="24">24 months (2 years)</option>
                       <option value="36">36 months (3 years)</option>
