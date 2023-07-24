@@ -22,10 +22,10 @@ export const simulatorContext = () => {
                     break;
             }
             this.selectedType = parseInt(value);
-            this.pickerSection = false;
+            return this.pickerSection = false;
         },
         switchBack() {
-            this.pickerSection = true;
+            return this.pickerSection = true;
         },
         updateValues() {
             const maxDownPayment = this.parseString(this.loan) - 10000000;
@@ -33,6 +33,7 @@ export const simulatorContext = () => {
             const maxMonthlyPayment = this.calculateMonthlyPayment(0);
             this.monthlyPayment = this.calculateMonthlyPayment();
             this.monthlyPaymentValue = (this.monthlyPayment * 100) / maxMonthlyPayment;
+            return false;
         },
         calculateMonthlyPayment(customDownPayment?: number) {
             const monthlyPayment = ((this.parseString(this.loan) - (customDownPayment ?? this.downPayment)) * (this.interestRate/100)) / (1 - Math.pow(1 + (this.interestRate/100), (~this.time + 1)));
@@ -51,11 +52,11 @@ export const simulatorContext = () => {
             this.downPayment = (this.downPaymentValue * maxDownPayment) / 100;
             this.monthlyPayment = this.calculateMonthlyPayment();
             this.monthlyPaymentValue = (this.monthlyPayment * 100) / maxMonthlyPayment;
+            return false;
         },
         getLabel(value: number) {
-            const label = Math.round(value).toLocaleString('en-US');
+            const label = isNaN(Math.round(value)) ? 0 : Math.round(value).toLocaleString('en-US');
             return `$${label}`;
         }
-        // this.loan = parseInt((e.target as Element).id);
     }
 };

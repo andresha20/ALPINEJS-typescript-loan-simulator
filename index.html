@@ -40,8 +40,8 @@
             <h2 x-show="selectedType == 1" class="text-center text-black dark:text-white mb-10">Bicycle Loan Simulator</h2>
             <h2 x-show="selectedType == 2" class="text-center text-black dark:text-white mb-10">Motorcycle Loan Simulator</h2>
             <h2 x-show="selectedType == 3" class="text-center text-black dark:text-white mb-10">Car Loan Simulator</h2>
-            <section class="bg-white dark:bg-slate-800 grid grid-cols-1 gap-5 text-black dark:text-white md:grid-cols-2 p-5 shadow rounded">
-              <section class="space-y-3">
+            <section class="bg-white dark:bg-slate-800 grid grid-cols-1 gap-10 text-black dark:text-white md:grid-cols-2 p-5 shadow rounded">
+              <section class="">
                 <div class="flex md:flex-row flex-col space-y-5 md:space-y-0 md:space-x-10 w-full">
                   <div class="w-full">
                     <label>AMOUNT</label>
@@ -59,11 +59,11 @@
                     </select>
                   </div>
                 </div>
-                <div class="relative">
+                <div class="relative my-5">
                   <label for="file">MONTHLY PAYMENT (<span x-text="interestRate"></span>% EIR/month)</label>
                   <p x-text="getLabel(monthlyPayment)" class="absolute top-2 right-0 font-extrabold"></p>
                 </div>
-                <div class="relative">
+                <div class="relative my-5">
                   <label for="file">DOWN PAYMENT</label>
                   <div class="x-slider flex relative my-3 w-full">
                     <div class="relative x-slider inline justify-center rounded-md">
@@ -79,9 +79,14 @@
                   </div>
                   <p x-text="getLabel(downPayment)" class="absolute top-5 right-0 font-extrabold"></p>
                 </div>
+                <p class="mt-10 text-xs">The results presented above are based on an Effective Interest Monthly Rate of <span x-text="interestRate"></span>%. These calculations are accurate according to the information provided.</p>
               </section>
               <section>
-                <p>test</p>
+                <h4 class="mb-2">TRADITIONAL PLAN</h4>
+                <p x-show="loan <= 10000000" class="font-bold text-white bg-red-900 p-2 rounded text-center my-3">LOAN CANNOT BE LOWER THAN $10,000,000</p>
+                <p x-show="loan > 10000000" class="font-extrabold text-2xl"><span x-text="getLabel(monthlyPayment)"></span></p>
+                <hr class="dark:border-white border-gray-600 my-5">
+                <p>If you purchase a vehicle in the term of <b><span x-text="time"></span> months</b>, you will have to pay monthly payments of <b x-text="getLabel(monthlyPayment)"></b> as long as you make a down payment of <b x-text="getLabel(downPayment)"></b>.</p>
               </section>
             </section>
           </section>
@@ -92,6 +97,9 @@
         <i x-show="!darkTheme" class="bi bi-moon-stars"></i>
       </section>
     </section>
+    <footer class="bg-gray-900 text-white text-center p-10">
+      <p>Credits to <b>Andrés Henao Alzate</b></p>
+    </footer>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
     <script type="module" src="/src/main.ts"></script>
   </body>
