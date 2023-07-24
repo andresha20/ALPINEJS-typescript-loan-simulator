@@ -84,7 +84,7 @@
               <section>
                 <h4 class="mb-2">TRADITIONAL PLAN</h4>
                 <p x-show="loan <= 10000000" class="font-bold text-white bg-red-900 p-2 rounded text-center my-3">LOAN CANNOT BE LOWER THAN $10,000,000</p>
-                <p x-show="loan > 10000000" class="font-extrabold text-2xl"><span x-text="getLabel(monthlyPayment)"></span></p>
+                <p class="font-extrabold text-2xl"><span x-text="getLabel(monthlyPayment)"></span></p>
                 <hr class="dark:border-white border-gray-600 my-5">
                 <p>If you purchase a vehicle in the term of <b><span x-text="time"></span> months</b>, you will have to pay monthly payments of <b x-text="getLabel(monthlyPayment)"></b> as long as you make a down payment of <b x-text="getLabel(downPayment)"></b>.</p>
               </section>
