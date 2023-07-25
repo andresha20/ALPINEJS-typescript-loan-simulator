@@ -1,5 +1,5 @@
 # ALPINEJS-typescript-loan-simulator
-[WIP] Loan simulator built with Alpine.js, Vite, Typescript and the almighty Tailwind.
+Loan simulator built with Alpine.js, Vite, Typescript and the almighty Tailwind.
 
 # DEVELOPMENT DATA:
 1. Everything is handled on the front using Alpine with Typescript and Tailwind. Vite was not necessary but I was curious about the implementation of TS and Alpine while using Vite.
